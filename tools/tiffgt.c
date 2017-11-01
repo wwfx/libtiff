@@ -29,17 +29,22 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-#include <unistd.h>
+
+#if defined(_WIN32)
+  #include <windows.h>
+#else
+  #include <unistd.h>
+#endif
 
 #ifdef HAVE_OPENGL_GL_H
-# include <OpenGL/gl.h>
+  #include <OpenGL/gl.h>
 #else
-# include <GL/gl.h>
+  #include <GL/gl.h>
 #endif
 #ifdef HAVE_GLUT_GLUT_H
-# include <GLUT/glut.h>
+  #include <GLUT/glut.h>
 #else
-# include <GL/glut.h>
+  #include <GL/glut.h>
 #endif
 
 #include "tiffio.h"
